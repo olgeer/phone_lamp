@@ -18,7 +18,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-/** ZekingFlashLampPlugin */
+/** PhoneLampPlugin */
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class PhoneLampPlugin implements FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
@@ -34,7 +34,7 @@ public class PhoneLampPlugin implements FlutterPlugin, MethodCallHandler {
 
     // FlutterRegistrar
 
-    channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "zeking_flash_lamp");
+    channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "phone_lamp");
     channel.setMethodCallHandler(this);
   }
 
@@ -50,8 +50,8 @@ public class PhoneLampPlugin implements FlutterPlugin, MethodCallHandler {
   public static void registerWith(Registrar registrar) {
     _camera = getCamera();
     mContext = registrar.activeContext();
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "zeking_flash_lamp");
-    channel.setMethodCallHandler(new ZekingFlashLampPlugin());
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "phone_lamp");
+    channel.setMethodCallHandler(new PhoneLampPlugin());
   }
 
   @Override
